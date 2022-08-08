@@ -1,10 +1,10 @@
 import { Alert } from '@mui/material';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 
-import useLogin from '../hooks/api/useLogin';
-import useAuth from '../hooks/useAuth';
+import { Input, SingUp } from './style';
+import useLogin from '../../hooks/api/useLogin';
+import useAuth from '../../hooks/useAuth';
 
 export default function SignInPage() {
 	const { signIn } = useAuth();
@@ -71,58 +71,9 @@ export default function SignInPage() {
 			<Link style={{ textDecoration: 'none' }} to={`/cadastro`}>
 				<p>Faça seu cadastro</p>
 			</Link>
+			<Link style={{ textDecoration: 'none' }} to={`/`}>
+				<p>Voltar pro inicio</p>
+			</Link>
 		</SingUp>
 	);
 }
-
-const SingUp = styled.div`
-	font-weight: 400;
-	max-width: 600px;
-	margin: auto;
-	form {
-		margin-top: 100px;
-		padding-left: 30px;
-		padding-right: 30px;
-	}
-
-	button {
-		width: 100%;
-		height: 40px;
-		margin-top: 15px;
-		font-family: 'Open Sans', sans-serif;
-		font-weight: 400;
-		font-size: 16px;
-	}
-
-	p {
-		font-size: 18px;
-		margin-top: 20px;
-		text-align: center;
-	}
-
-	@media (max-width: 450px) {
-		form {
-			padding-left: 10px;
-			padding-right: 10px;
-			width: 100vw;
-		}
-	}
-`;
-
-const Input = styled.div`
-	display: flex;
-	flex-direction: column;
-
-	width: 100%;
-
-	label {
-		margin-bottom: 5px;
-		font-size: 20px;
-	}
-
-	input {
-		margin-bottom: 10px;
-		height: 30px;
-		padding-left: 5px;
-	}
-`;
