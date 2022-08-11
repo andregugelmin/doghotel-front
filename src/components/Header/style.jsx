@@ -11,9 +11,10 @@ export const Main = styled.header`
 	top: 0;
 	left: 0;
 	height: 100px;
-	border: 1px solid #553c20;
+
 	background-color: white;
 	z-index: 3;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 
 	.middle {
 		display: flex;

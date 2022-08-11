@@ -74,7 +74,7 @@ export default function Header(props) {
 					}}
 				>
 					<MenuItem onClick={handleClose}>Perfil</MenuItem>
-					<MenuItem onClick={handleClose}>Meus Dogs</MenuItem>
+					<MenuItem onClick={() => navigate('/meus-dogs')}>Meus Dogs</MenuItem>
 					<MenuItem onClick={signOut}>Desconectar</MenuItem>
 				</Menu>
 			</div>
