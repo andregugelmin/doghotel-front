@@ -86,7 +86,7 @@ export default function Header(props) {
 	return (
 		<Main>
 			<div className="middle">
-				<p onClick={() => navigate('/')}>Encontrar anfitrião</p>
+				<p onClick={() => navigate('/encontre-um-anfitriao')}>Encontrar anfitrião</p>
 				<p onClick={() => navigate('/seja-um-anfitriao')}>Quero ser anfitrião</p>
 			</div>
 

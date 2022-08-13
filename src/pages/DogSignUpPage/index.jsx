@@ -19,7 +19,7 @@ export default function DogSignUpPage() {
 	const { signUpDogData, loadingSignUpDog, signUpDog, signUpDogError } = useSignUpDog();
 	const { token, user } = useAuth();
 	const [name, setName] = useState('');
-	const [gender, setGeneder] = useState('');
+	const [gender, setGender] = useState('');
 	const [breed, setBreed] = useState('');
 	const [weight, setWeight] = useState(0);
 	const [isNeutered, setIsNeutered] = useState(false);
@@ -65,7 +65,7 @@ export default function DogSignUpPage() {
 						<h2>Nome</h2>
 						<TextField className="text-field" onChange={(event) => setName(event.target.value)} />
 						<h2>Gênero</h2>
-						<RadioGroup row value={gender} onChange={(event) => setGeneder(event.target.value)}>
+						<RadioGroup row value={gender} onChange={(event) => setGender(event.target.value)}>
 							<FormControlLabel value="Male" control={<Radio />} label="Macho" />
 							<FormControlLabel value="Female" control={<Radio />} label="Femea" />
 						</RadioGroup>
