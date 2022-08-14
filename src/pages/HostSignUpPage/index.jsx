@@ -1,12 +1,13 @@
 import { Button, CssBaseline, FormControl, Input, Slider, TextField, ThemeProvider } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Box } from '@mui/system';
+
 import Header from '../../components/Header';
 import useAuth from '../../hooks/useAuth';
 import { ButtonTheme, SignUpHost, Main } from './style';
 import imagecouple from '../../assets/images/couple-and-dog-image.jpg';
-import { Box } from '@mui/system';
 import useSignUpHost from '../../hooks/api/useSignUpHost';
-import { useNavigate } from 'react-router-dom';
 
 export default function HostSingUpPage() {
 	const { loadingSignUpHost, signUpHost, signUpHostError } = useSignUpHost();

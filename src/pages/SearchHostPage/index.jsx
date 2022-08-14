@@ -7,13 +7,14 @@ import useAuth from '../../hooks/useAuth';
 import { FormTheme, Main } from './style';
 import Logo from '../../assets/images/LogoDog-_BRANCA.png';
 import useGetHost from '../../hooks/api/useGetHost';
+import SendRequestForm from '../../components/SendRequestForm';
 
 export default function SearchHostPage() {
 	const { token, user } = useAuth();
 	const { loadingGetHost, getHost, getHostError, host } = useGetHost();
 	const [searchOption, setSearchOption] = useState('name');
 	const [searchHost, setSearchHost] = useState('');
-
+	const [hostPage, setHostPage] = useState(<></>);
 	useEffect(() => {
 		if (getHostError) {
 			alert('Houve um erro ao pesquisar hosts!');
@@ -37,6 +38,10 @@ export default function SearchHostPage() {
 				<Main></Main>
 			</>
 		);
+	}
+
+	function setHostPageOn(hostObj) {
+		setHostPage(<SendRequestForm host={hostObj} setHostPage={setHostPage} token={token} />);
 	}
 
 	return !host ? (
@@ -92,7 +97,7 @@ export default function SearchHostPage() {
 							return (
 								<div key={i} className="host-box">
 									<div className="host-info">
-										<h2>
+										<h2 onClick={() => setHostPageOn(elem)}>
 											{elem.user.name} {elem.user.surname}
 										</h2>
 										<p>
@@ -111,6 +116,7 @@ export default function SearchHostPage() {
 							);
 						})}
 					</div>
+					{hostPage}
 				</Main>
 			</ThemeProvider>
 		</>
