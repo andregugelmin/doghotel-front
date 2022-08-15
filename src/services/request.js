@@ -12,3 +12,9 @@ export async function getRequests(token, type) {
 	const response = await api.get(`/requests/${type}`, config);
 	return response.data;
 }
+
+export async function updateRequests(token, data, type) {
+	const config = getConfig(token);
+	const response = await api.post(`/request/${type}`, data, config);
+	return response.data;
+}

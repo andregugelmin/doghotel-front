@@ -16,18 +16,33 @@ export const Main = styled.header`
 	z-index: 3;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 
+	img:hover {
+		cursor: pointer;
+	}
+
 	.middle {
 		display: flex;
 		justify-content: space-around;
-		width: 300px;
+		width: 500px;
 		color: #473929;
+	}
+
+	.middle p {
+		font-size: 18px;
 	}
 
 	.middle p:hover {
 		color: #796247;
 		cursor: pointer;
 	}
-
+	.right {
+		color: #473929;
+		margin-right: 20px;
+	}
+	.right p:hover {
+		color: #796247;
+		cursor: pointer;
+	}
 	.profile Button {
 		margin-right: 10px;
 	}
@@ -43,7 +58,7 @@ export const Main = styled.header`
 		color: black;
 	}
 
-	.profile-active:hover {
+	.user-name:hover {
 		text-decoration: underline;
 		cursor: pointer;
 		color: #252525;

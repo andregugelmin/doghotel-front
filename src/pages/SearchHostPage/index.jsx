@@ -26,8 +26,6 @@ export default function SearchHostPage() {
 		const searchData = {
 			name: searchHost,
 		};
-
-		console.log(searchData, searchOption);
 		if (searchHost) getHost(searchData, searchOption);
 	}
 

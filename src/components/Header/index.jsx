@@ -6,6 +6,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { deepOrange } from '@mui/material/colors';
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
+import Logo from '../../assets/images/LogoDog_SoNOME.png';
 
 export default function Header(props) {
 	const navigate = useNavigate();
@@ -45,6 +46,10 @@ export default function Header(props) {
 			</>
 		) : (
 			<div className="profile-active">
+				<div className="right">
+					<p onClick={() => navigate('/meus-pedidos')}>Pedidos</p>
+				</div>
+
 				<Avatar sx={{ bgcolor: deepOrange[900] }}></Avatar>
 				<Button
 					id="positioned-button"
@@ -53,7 +58,7 @@ export default function Header(props) {
 					aria-expanded={open ? 'true' : undefined}
 					onMouseEnter={handleClick}
 				>
-					<p>{user.name}</p>
+					<p className="user-name">{user.name}</p>
 					<div className="icon">
 						<IoChevronDownSharp />
 					</div>
@@ -85,6 +90,7 @@ export default function Header(props) {
 
 	return (
 		<Main>
+			<img src={Logo} alt="logo" onClick={() => navigate('/')} />
 			<div className="middle">
 				<p onClick={() => navigate('/encontre-um-anfitriao')}>Encontrar anfitrião</p>
 				<p onClick={() => navigate('/seja-um-anfitriao')}>Quero ser anfitrião</p>

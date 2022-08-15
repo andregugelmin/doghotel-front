@@ -9,6 +9,7 @@ import HostSingUpPage from './pages/HostSignUpPage';
 import DogPage from './pages/DogPage';
 import DogSignUpPage from './pages/DogSignUpPage';
 import SearchHostPage from './pages/SearchHostPage';
+import RequestPage from './pages/RequestsPage';
 
 export default function App() {
 	return (
@@ -22,6 +23,7 @@ export default function App() {
 					<Route path="/meus-dogs" element={<DogPage />} />
 					<Route path="/cadastre-seu-dog" element={<DogSignUpPage />} />
 					<Route path="/encontre-um-anfitriao" element={<SearchHostPage />} />
+					<Route path="/meus-pedidos" element={<RequestPage />} />
 				</Routes>
 			</BrowserRouter>
 		</AuthProvider>
