@@ -1,11 +1,28 @@
 import styled from 'styled-components';
 
+export const Main = styled.div`
+	background-color: #bd9251;
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 150px;
+
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+`;
+
 export const SingUp = styled.div`
 	font-weight: 400;
 	max-width: 600px;
 	margin: auto;
+	font-family: 'Lato', sans-serif;
+	border: 1px solid;
+	border-radius: 10px;
+	padding: 50px;
+	background-color: #ffffff;
 	form {
-		margin-top: 100px;
 		padding-left: 30px;
 		padding-right: 30px;
 	}
@@ -26,6 +43,8 @@ export const SingUp = styled.div`
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 400;
 		font-size: 16px;
+		color: #38352f;
+		border-color: #584e3d;
 	}
 
 	p {

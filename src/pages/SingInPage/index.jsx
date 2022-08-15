@@ -1,10 +1,11 @@
-import { Alert } from '@mui/material';
+import { Alert, Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { Input, SingUp } from './style';
+import { Input, Main, SingUp } from './style';
 import useLogin from '../../hooks/api/useLogin';
 import useAuth from '../../hooks/useAuth';
+import Logo from '../../assets/images/LogoDog_SoNOME.png';
 
 export default function SignInPage() {
 	const { signIn } = useAuth();
@@ -49,31 +50,36 @@ export default function SignInPage() {
 	}
 
 	return (
-		<SingUp>
-			<form onSubmit={(e) => submitForm(e)}>
-				<Input>
-					<label>E-mail</label>
-					<input type="email" placeholder="Digite seu e-mail" onChange={(e) => setEmail(e.target.value)} required />
-				</Input>
-				<Input>
-					<label>Senha</label>
-					<input
-						type="password"
-						placeholder="Digite sua senha"
-						onChange={(e) => setPassword(e.target.value)}
-						required
-					/>
-				</Input>
+		<Main>
+			<img src={Logo} alt="logo" onClick={() => navigate('/')} />
+			<SingUp>
+				<form onSubmit={(e) => submitForm(e)}>
+					<Input>
+						<label>E-mail</label>
+						<input type="email" placeholder="Digite seu e-mail" onChange={(e) => setEmail(e.target.value)} required />
+					</Input>
+					<Input>
+						<label>Senha</label>
+						<input
+							type="password"
+							placeholder="Digite sua senha"
+							onChange={(e) => setPassword(e.target.value)}
+							required
+						/>
+					</Input>
 
-				<button type="submit">Entrar</button>
-			</form>
-			{errorMsg}
-			<Link style={{ textDecoration: 'none' }} to={`/cadastro`}>
-				<p>Faça seu cadastro</p>
-			</Link>
-			<Link style={{ textDecoration: 'none' }} to={`/`}>
-				<p>Voltar pro inicio</p>
-			</Link>
-		</SingUp>
+					<Button type="submit" variant="outlined">
+						Entrar
+					</Button>
+				</form>
+				{errorMsg}
+				<Link style={{ textDecoration: 'none' }} to={`/cadastro`}>
+					<p>Faça seu cadastro</p>
+				</Link>
+				<Link style={{ textDecoration: 'none' }} to={`/`}>
+					<p>Voltar pro inicio</p>
+				</Link>
+			</SingUp>
+		</Main>
 	);
 }

@@ -11,7 +11,7 @@ export default function HomePage() {
 			<Header token={token} user={user}></Header>;
 			<Main>
 				<img src={Logo} alt="logo" />
-				<h1>Encontre um anfitrião para seu dog quando precisar!</h1>
+				<h1>Encontre um anfitrião de confiança para seu dog aqui!</h1>
 			</Main>
 		</>
 	);

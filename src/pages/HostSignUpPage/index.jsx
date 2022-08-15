@@ -20,6 +20,10 @@ export default function HostSingUpPage() {
 
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		if (!token) navigate('/entrar');
+	}, []);
+
 	const handlePriceSliderChange = (event, newValue) => {
 		setPrice(newValue);
 	};
@@ -111,96 +115,99 @@ export default function HostSingUpPage() {
 			</Main>
 		</>
 	) : (
-		<SignUpHost>
-			<div className="forms">
-				<ThemeProvider theme={ButtonTheme}>
-					<CssBaseline enableColorScheme />
-					<Box sx={{ width: 250 }}>
-						<div className="input-title">
-							<p>Preço da hospedagem</p>
-							<Input
-								value={price / 100}
-								size="small"
-								onChange={handleInputPriceChange}
-								onBlur={handlePriceBlur}
-								inputProps={{
-									step: 1,
-									min: 0,
-									max: 250,
-									type: 'number',
-									'aria-labelledby': 'input-slider',
-								}}
+		<>
+			<Header token={token} user={user}></Header>
+			<SignUpHost>
+				<div className="forms">
+					<ThemeProvider theme={ButtonTheme}>
+						<CssBaseline enableColorScheme />
+						<Box sx={{ width: 250 }}>
+							<div className="input-title">
+								<p>Preço da hospedagem</p>
+								<Input
+									value={price / 100}
+									size="small"
+									onChange={handleInputPriceChange}
+									onBlur={handlePriceBlur}
+									inputProps={{
+										step: 1,
+										min: 0,
+										max: 250,
+										type: 'number',
+										'aria-labelledby': 'input-slider',
+									}}
+								/>
+							</div>
+
+							<Slider
+								aria-labelledby="input-slider"
+								value={typeof price === 'number' ? price : 20}
+								getAriaValueText={pricetext}
+								step={100}
+								marks={[
+									{
+										value: 2000,
+										label: '$20',
+									},
+									{
+										value: 25000,
+										label: '$250',
+									},
+								]}
+								min={2000}
+								max={25000}
+								onChange={handlePriceSliderChange}
 							/>
-						</div>
 
-						<Slider
-							aria-labelledby="input-slider"
-							value={typeof price === 'number' ? price : 20}
-							getAriaValueText={pricetext}
-							step={100}
-							marks={[
-								{
-									value: 2000,
-									label: '$20',
-								},
-								{
-									value: 25000,
-									label: '$250',
-								},
-							]}
-							min={2000}
-							max={25000}
-							onChange={handlePriceSliderChange}
-						/>
+							<div className="title-weight">
+								<p>Peso do cachorro que deseja hospedar (minimo e máximo)</p>
+							</div>
 
-						<div className="title-weight">
-							<p>Peso do cachorro que deseja hospedar (minimo e máximo)</p>
-						</div>
+							<Slider
+								getAriaLabel={() => 'Temperature range'}
+								value={weight}
+								onChange={handleWeightChange}
+								step={5}
+								marks={[
+									{
+										value: 0,
+										label: '0kg',
+									},
+									{
+										value: 50,
+										label: '50kg',
+									},
+								]}
+								min={0}
+								max={50}
+								valueLabelDisplay="on"
+							/>
+						</Box>
 
-						<Slider
-							getAriaLabel={() => 'Temperature range'}
-							value={weight}
-							onChange={handleWeightChange}
-							step={5}
-							marks={[
-								{
-									value: 0,
-									label: '0kg',
-								},
-								{
-									value: 50,
-									label: '50kg',
-								},
-							]}
-							min={0}
-							max={50}
-							valueLabelDisplay="on"
-						/>
-					</Box>
+						<FormControl fullWidth sx={{ m: 1, width: '40ch' }} variant="standard">
+							<TextField
+								className="text-field"
+								label="Sua cidade"
+								variant="filled"
+								onChange={handleCityChange}
+								defaultValue={city}
+							/>
 
-					<FormControl fullWidth sx={{ m: 1, width: '40ch' }} variant="standard">
-						<TextField
-							className="text-field"
-							label="Sua cidade"
-							variant="filled"
-							onChange={handleCityChange}
-							defaultValue={city}
-						/>
+							<TextField
+								className="text-field"
+								label="Seu endereço"
+								variant="filled"
+								onChange={handleAddresChange}
+								defaultValue={address}
+							/>
+						</FormControl>
 
-						<TextField
-							className="text-field"
-							label="Seu endereço"
-							variant="filled"
-							onChange={handleAddresChange}
-							defaultValue={address}
-						/>
-					</FormControl>
-
-					<Button variant="contained" color="primary" onClick={submitForm}>
-						Finalizar cadastro
-					</Button>
-				</ThemeProvider>
-			</div>
-		</SignUpHost>
+						<Button variant="contained" color="primary" onClick={submitForm}>
+							Finalizar cadastro
+						</Button>
+					</ThemeProvider>
+				</div>
+			</SignUpHost>
+		</>
 	);
 }

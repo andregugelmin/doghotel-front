@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useCreateUser from '../../hooks/api/useCreateUser';
 
-import { Input, SingUp } from './style';
+import { Input, Main, SingUp } from './style';
+import Logo from '../../assets/images/LogoDog_SoNOME.png';
+import { Button } from '@mui/material';
 
 export default function SignUpPage() {
 	const { loadingCreatingUser, createUser, creatingUserError } = useCreateUser();
@@ -50,52 +52,57 @@ export default function SignUpPage() {
 	}
 
 	return (
-		<SingUp>
-			<form onSubmit={(e) => submitForm(e)}>
-				<Input>
-					<label>E-mail</label>
-					<input type="email" placeholder="Digite seu e-mail" onChange={(e) => setEmail(e.target.value)} required />
-				</Input>
-				<div className="input-div">
-					<Input className="left">
-						<label>Nome</label>
-						<input type="text" placeholder="Seu nome" onChange={(e) => setName(e.target.value)} required />
+		<Main>
+			<img src={Logo} alt="logo" onClick={() => navigate('/')} />
+			<SingUp>
+				<form onSubmit={(e) => submitForm(e)}>
+					<Input>
+						<label>E-mail</label>
+						<input type="email" placeholder="Digite seu e-mail" onChange={(e) => setEmail(e.target.value)} required />
 					</Input>
-					<Input className="right">
-						<label>Sobrenome</label>
-						<input type="text" placeholder="Seu sobrenome" onChange={(e) => setSurname(e.target.value)} required />
-					</Input>
-				</div>
-				<div className="input-div">
-					<Input className="left">
-						<label>Senha</label>
-						<input
-							type="password"
-							placeholder="Digite sua senha"
-							onChange={(e) => setPassword(e.target.value)}
-							required
-						/>
-					</Input>
-					<Input className="right">
-						<label>Confirmação</label>
-						<input
-							type="password"
-							placeholder="Confirme sua senha"
-							onChange={(e) => setConfirmPassword(e.target.value)}
-							required
-						/>
-					</Input>
-				</div>
+					<div className="input-div">
+						<Input className="left">
+							<label>Nome</label>
+							<input type="text" placeholder="Seu nome" onChange={(e) => setName(e.target.value)} required />
+						</Input>
+						<Input className="right">
+							<label>Sobrenome</label>
+							<input type="text" placeholder="Seu sobrenome" onChange={(e) => setSurname(e.target.value)} required />
+						</Input>
+					</div>
+					<div className="input-div">
+						<Input className="left">
+							<label>Senha</label>
+							<input
+								type="password"
+								placeholder="Digite sua senha"
+								onChange={(e) => setPassword(e.target.value)}
+								required
+							/>
+						</Input>
+						<Input className="right">
+							<label>Confirmação</label>
+							<input
+								type="password"
+								placeholder="Confirme sua senha"
+								onChange={(e) => setConfirmPassword(e.target.value)}
+								required
+							/>
+						</Input>
+					</div>
 
-				<button type="submit">Cadastrar</button>
-			</form>
+					<Button variant="outlined" type="submit">
+						Cadastrar
+					</Button>
+				</form>
 
-			<Link style={{ textDecoration: 'none' }} to={`/entrar`}>
-				<p>Já tem uma conta? Entre agora!</p>
-			</Link>
-			<Link style={{ textDecoration: 'none' }} to={`/`}>
-				<p>Voltar pro inicio</p>
-			</Link>
-		</SingUp>
+				<Link style={{ textDecoration: 'none' }} to={`/entrar`}>
+					<p>Já tem uma conta? Entre agora!</p>
+				</Link>
+				<Link style={{ textDecoration: 'none' }} to={`/`}>
+					<p>Voltar pro inicio</p>
+				</Link>
+			</SingUp>
+		</Main>
 	);
 }
