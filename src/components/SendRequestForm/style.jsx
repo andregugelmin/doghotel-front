@@ -12,7 +12,7 @@ export const Main = styled.header`
 	border-radius: 10px;
 	font-size: 20px;
 	border: 1px solid;
-	z-index: 3;
+	z-index: 5;
 
 	box-sizing: border-box;
 	.date-pickers {
