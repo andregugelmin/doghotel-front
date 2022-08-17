@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 export const Main = styled.header`
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: #bd9251;
 	padding-top: 100px;
+	padding-bottom: 100px;
 
 	.image-message {
 		max-height: calc(100vh - 100px);
@@ -78,12 +79,14 @@ export const ButtonTheme = createTheme({
 
 export const SignUpHost = styled.header`
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
+	padding-bottom: 50px;
 	background-color: #bd9251;
 	display: flex;
 	justify-content: center;
 	.forms {
 		width: 500px;
+		max-width: 100%;
 		max-height: 600px;
 		display: flex;
 		flex-direction: column;

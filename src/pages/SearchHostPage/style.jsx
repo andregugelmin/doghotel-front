@@ -4,22 +4,31 @@ import { createTheme } from '@mui/material';
 export const Main = styled.header`
 	font-family: 'Lato', sans-serif;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: #bd9251;
 	padding-top: 100px;
+	padding-bottom: 100px;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 
+	img {
+		max-width: 100%;
+	}
+
 	.pre-form {
 		color: white;
+		max-width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 
 	.form {
 		margin-top: 40px;
-		padding: 15px;
+		padding: 10px;
 		color: white;
+		max-width: 100%;
 	}
 
 	.input {
@@ -63,6 +72,15 @@ export const Main = styled.header`
 	.price {
 		color: #553c20;
 		font-weight: 700;
+	}
+
+	@media (max-width: 800px) {
+		.hosts-container {
+			width: 100%;
+		}
+		.host-box {
+			border-radius: 0;
+		}
 	}
 `;
 

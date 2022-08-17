@@ -10,6 +10,7 @@ export const Main = styled.header`
 
 	.header {
 		width: 600px;
+		max-width: 100%;
 		margin: 100px auto 0 auto;
 	}
 
@@ -59,6 +60,7 @@ export const Main = styled.header`
 		justify-content: space-evenly;
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 		width: 600px;
+		max-width: 100%;
 		height: auto;
 		min-height: 400px;
 		background: white;
@@ -68,6 +70,7 @@ export const Main = styled.header`
 
 	.dog-box {
 		width: 450px;
+		max-width: 100%;
 		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 		padding: 15px;
 		margin-top: 25px;

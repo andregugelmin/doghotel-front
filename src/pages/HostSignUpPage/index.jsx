@@ -121,7 +121,7 @@ export default function HostSingUpPage() {
 				<div className="forms">
 					<ThemeProvider theme={ButtonTheme}>
 						<CssBaseline enableColorScheme />
-						<Box sx={{ width: 250 }}>
+						<Box sx={{ width: 250, maxWidth: '1' }}>
 							<div className="input-title">
 								<p>Preço da hospedagem</p>
 								<Input
@@ -184,7 +184,7 @@ export default function HostSingUpPage() {
 							/>
 						</Box>
 
-						<FormControl fullWidth sx={{ m: 1, width: '40ch' }} variant="standard">
+						<FormControl fullWidth sx={{ m: 1, width: '40ch', maxWidth: '1' }} variant="standard">
 							<TextField
 								className="text-field"
 								label="Sua cidade"

@@ -3,12 +3,14 @@ import styled from 'styled-components';
 export const Main = styled.header`
 	font-family: 'Lato', sans-serif;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: #bd9251;
 	padding-top: 100px;
+	padding-bottom: 100px;
 
 	.header {
 		width: 600px;
+		max-width: 100%;
 		margin: 100px auto 0 auto;
 	}
 
@@ -61,6 +63,7 @@ export const Main = styled.header`
 		justify-content: space-evenly;
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 		width: 600px;
+		max-width: 100%;
 		height: auto;
 		background: white;
 		margin: 25px auto;

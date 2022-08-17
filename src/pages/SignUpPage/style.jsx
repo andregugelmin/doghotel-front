@@ -5,17 +5,30 @@ export const Main = styled.div`
 	width: 100%;
 	min-height: 100vh;
 	padding-top: 150px;
+	padding-bottom: 50px;
 
 	img {
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
 	}
+
+	@media (max-height: 800px) {
+		padding-top: 50px;
+	}
+	@media (max-height: 600px) {
+		padding-top: 0;
+	}
+
+	@media (max-width: 560px) {
+		padding-top: 0;
+	}
 `;
 
 export const SingUp = styled.div`
 	font-weight: 400;
-	max-width: 600px;
+	width: 600px;
+	max-width: 100%;
 	margin: auto;
 	font-family: 'Lato', sans-serif;
 	border: 1px solid;
@@ -52,19 +65,24 @@ export const SingUp = styled.div`
 		text-align: center;
 	}
 
-	@media (max-width: 450px) {
+	@media (max-width: 560px) {
 		form {
 			padding-left: 10px;
 			padding-right: 10px;
-			width: 100vw;
+			width: 100%;
 		}
-	}
 
-	@media (max-width: 400px) {
 		.input-div {
-			Input {
-				width: 45vw;
+			flex-direction: column;
+			.left {
+				margin-right: 0;
 			}
+		}
+
+		button {
+			height: 30px;
+			margin-top: 12px;
+			font-size: 14px;
 		}
 	}
 `;
@@ -84,5 +102,16 @@ export const Input = styled.div`
 		margin-bottom: 10px;
 		height: 30px;
 		padding-left: 5px;
+	}
+
+	@media (max-width: 560px) {
+		label {
+			font-size: 16px;
+		}
+
+		input {
+			margin-bottom: 8px;
+			height: 24px;
+		}
 	}
 `;

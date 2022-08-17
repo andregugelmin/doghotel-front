@@ -85,7 +85,7 @@ export default function RequestPage() {
 				<div className="requests">
 					{requests && requests.length > 0 ? (
 						<div>
-							<h2>Pedidos Pendentes</h2>
+							<h2 className="white-title">Pedidos Pendentes</h2>
 							{requests.map((elem, i) => {
 								return !elem.isAccepted ? (
 									<div key={i} className="request-box">
@@ -123,11 +123,11 @@ export default function RequestPage() {
 										)}
 									</div>
 								) : (
-									<h3>Nenhum pedido pendente</h3>
+									<h3 className="white-title">Nenhum pedido pendente</h3>
 								);
 							})}
 							<div className="divisor"></div>
-							<h2>Pedidos Aceitos</h2>
+							<h2 className="white-title">Pedidos Aceitos</h2>
 							{requests.map((elem, i) => {
 								return elem.isAccepted && elem.isActive ? (
 									<div key={i} className="request-box">
@@ -162,17 +162,19 @@ export default function RequestPage() {
 									</div>
 								) : (
 									<>
-										<h2>Pedidos Pendentes</h2>
-										<h3>Nenhum pedido pendente</h3>
-										<div className="divisor"></div>
-										<h2>Pedidos Aceitos</h2>
-										<h3>Nenhum pedido aceito</h3>
+										<h3 className="white-title">Nenhum pedido aceito</h3>
 									</>
 								);
 							})}
 						</div>
 					) : (
-						<h3>Sem pedidos no momento</h3>
+						<>
+							<h2 className="white-title">Pedidos Pendentes</h2>
+							<h3 className="white-title">Nenhum pedido pendente</h3>
+							<div className="divisor"></div>
+							<h2 className="white-title">Pedidos Aceitos</h2>
+							<h3 className="white-title">Nenhum pedido aceito</h3>
+						</>
 					)}
 				</div>
 				{open ? (

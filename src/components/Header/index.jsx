@@ -1,5 +1,5 @@
 import { Avatar, Button, CssBaseline, Menu, MenuItem } from '@mui/material';
-import { IoChevronDownSharp, IoChevronUpSharp } from 'react-icons/io5';
+import { IoChevronDownSharp, IoClose, IoMenuSharp } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 import { HeaderTheme, Main } from './style';
 import { ThemeProvider } from '@mui/material/styles';
@@ -13,6 +13,7 @@ export default function Header(props) {
 	const { signOut } = useAuth();
 	const { token, user } = props;
 	const [anchorEl, setAnchorEl] = useState(null);
+	const [menuActive, setMenuActive] = useState(false);
 
 	const open = Boolean(anchorEl);
 	const handleClick = (event) => {
@@ -90,16 +91,66 @@ export default function Header(props) {
 
 	return (
 		<Main>
-			<img src={Logo} alt="logo" onClick={() => navigate('/')} />
-			<div className="middle">
-				<p onClick={() => navigate('/encontre-um-anfitriao')}>Encontrar anfitrião</p>
-				<p onClick={() => navigate('/seja-um-anfitriao')}>Quero ser anfitrião</p>
-			</div>
+			{!menuActive ? (
+				<div className="mobile-menu">
+					<IoMenuSharp className="mobile-menu-icon" onClick={() => setMenuActive(true)} />
+					<img src={Logo} alt="logo" onClick={() => navigate('/')} />
+				</div>
+			) : (
+				<div className="mobile-menu-active">
+					<IoClose className="mobile-menu-active-icon" onClick={() => setMenuActive(false)} />
+					<img src={Logo} alt="logo" onClick={() => navigate('/')} />
+					<p onClick={() => navigate('/encontre-um-anfitriao')}>Encontrar anfitrião</p>
+					<p onClick={() => navigate('/seja-um-anfitriao')}>Quero ser anfitrião</p>
+					<ThemeProvider theme={HeaderTheme}>
+						<CssBaseline enableColorScheme />
+						<div className="profile-mobile">
+							{!token ? (
+								<div className="buttons-mobile">
+									<Button
+										variant="outlined"
+										color="primary"
+										onClick={() => {
+											navigate('/entrar');
+										}}
+									>
+										Entrar
+									</Button>
+									<Button
+										variant="contained"
+										color="primary"
+										onClick={() => {
+											navigate('/cadastro');
+										}}
+									>
+										Criar conta
+									</Button>
+								</div>
+							) : (
+								<div className="profile-active-mobile">
+									<p onClick={() => navigate('/meus-pedidos')}>Pedidos</p>
+									<p>Perfil</p>
+									<p onClick={() => navigate('/meus-dogs')}>Meus Dogs</p>
+									<p onClick={signOut}>Desconectar</p>
+								</div>
+							)}
+						</div>
+					</ThemeProvider>
+				</div>
+			)}
 
-			<ThemeProvider theme={HeaderTheme}>
-				<CssBaseline enableColorScheme />
-				<div className="profile">{profileMenu}</div>
-			</ThemeProvider>
+			<div className="desktop-menu">
+				<img src={Logo} alt="logo" onClick={() => navigate('/')} />
+				<div className="middle">
+					<p onClick={() => navigate('/encontre-um-anfitriao')}>Encontrar anfitrião</p>
+					<p onClick={() => navigate('/seja-um-anfitriao')}>Quero ser anfitrião</p>
+				</div>
+
+				<ThemeProvider theme={HeaderTheme}>
+					<CssBaseline enableColorScheme />
+					<div className="profile">{profileMenu}</div>
+				</ThemeProvider>
+			</div>
 		</Main>
 	);
 }

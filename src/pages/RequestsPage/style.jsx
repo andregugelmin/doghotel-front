@@ -12,14 +12,22 @@ export const Main = styled.div`
 	h2 {
 		font-size: 26px;
 		font-weight: 700;
-		color: #e9e9e9;
+		color: #252525;
 	}
 
 	h3 {
-		color: #e9e9e9;
+		color: #252525;
 		font-size: 20px;
 		font-weight: 500;
 		margin-bottom: 5px;
+	}
+
+	.white-title {
+		color: #e9e9e9;
+	}
+
+	.name {
+		color: #252525;
 	}
 
 	.tabs {

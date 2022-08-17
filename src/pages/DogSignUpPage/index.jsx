@@ -61,7 +61,7 @@ export default function DogSignUpPage() {
 					<h1>Cadastrar Dog</h1>
 				</div>
 				<div className="forms-container">
-					<FormControl fullWidth sx={{ m: 1, width: '40ch' }} variant="standard">
+					<FormControl fullWidth sx={{ m: 1, width: '40ch', maxWidth: '1', p: '10px' }} variant="standard">
 						<h2>Nome</h2>
 						<TextField className="text-field" onChange={(event) => setName(event.target.value)} />
 						<h2>Gênero</h2>

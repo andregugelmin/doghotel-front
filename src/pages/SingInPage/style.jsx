@@ -11,6 +11,12 @@ export const Main = styled.div`
 		margin-left: auto;
 		margin-right: auto;
 	}
+	@media (max-height: 800px) {
+		padding-top: 50px;
+	}
+	@media (max-height: 600px) {
+		padding-top: 0;
+	}
 `;
 
 export const SingUp = styled.div`
@@ -45,11 +51,17 @@ export const SingUp = styled.div`
 		text-align: center;
 	}
 
-	@media (max-width: 450px) {
+	@media (max-width: 560px) {
 		form {
 			padding-left: 10px;
 			padding-right: 10px;
-			width: 100vw;
+			width: 100%;
+		}
+
+		button {
+			height: 30px;
+			margin-top: 12px;
+			font-size: 14px;
 		}
 	}
 `;
@@ -69,5 +81,16 @@ export const Input = styled.div`
 		margin-bottom: 10px;
 		height: 30px;
 		padding-left: 5px;
+	}
+
+	@media (max-width: 560px) {
+		label {
+			font-size: 16px;
+		}
+
+		input {
+			margin-bottom: 8px;
+			height: 24px;
+		}
 	}
 `;

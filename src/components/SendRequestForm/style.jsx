@@ -12,6 +12,9 @@ export const Main = styled.header`
 	border-radius: 10px;
 	font-size: 20px;
 	border: 1px solid;
+	z-index: 3;
+
+	box-sizing: border-box;
 	.date-pickers {
 		display: flex;
 		margin-top: 25px;
@@ -62,5 +65,25 @@ export const Main = styled.header`
 
 	.price {
 		font-size: 20px;
+	}
+
+	@media (max-height: 850px) {
+		top: 50px;
+		overflow-y: scroll;
+		max-height: 100%;
+	}
+	@media (max-height: 700px) {
+		min-height: 100%;
+		top: 0;
+		border-radius: 0px;
+		border: none;
+		overflow-y: scroll;
+		max-height: 100%;
+	}
+	@media (max-width: 700px) {
+		width: 100%;
+		right: 0;
+		left: 0;
+		top: 0;
 	}
 `;
